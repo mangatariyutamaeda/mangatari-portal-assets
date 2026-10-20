@@ -71,6 +71,7 @@ TOOLS = [
     ('mangatari-tweet-gen',         'X',  'その他', 'X ツイート文面'),
     ('manga-b2b-archive',           'B',  'その他', 'マンガ業界B2Bアーカイブ'),
     ('slack-stale-alert',           '放', 'その他', 'Slack放置検知'),
+    ('mangatari-ci-monitor',        '監', 'その他', 'CI・監視（定期実行の見張り）'),
 ]
 
 # ファイル名に使えない・URLで困る文字を落とす（日本語キーは英字名に読み替える）
