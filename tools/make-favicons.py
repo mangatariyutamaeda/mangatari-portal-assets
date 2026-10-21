@@ -48,6 +48,7 @@ TOOLS = [
     ('aichara_gas',                 'キ', '制作', 'アイキャラ 案件管理'),
     ('letterpack-tracker',          'レ', '制作', 'レターパック伝票スキャナ'),
     ('mangatari-event-hub',         '催', '制作', 'イベント管理'),
+    ('mangatari-goods-anken',       'グ', '制作', '【グッズ】案件管理'),
 
     ('mangatari_accounting',        '会', '会計', '作品別 管理会計'),
     ('mangatari-zensha-accounting', '全', '会計', '全社 管理会計（PL）'),
