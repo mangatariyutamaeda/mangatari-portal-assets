@@ -62,6 +62,8 @@ TOOLS = [
     ('mangatari_gift',              '贈', '人事', '作家 贈答管理'),
     ('まんがたり荘ポータル',          '荘', '人事', 'まんがたり荘ポータル'),
     ('FocusCraft',                  'F',  '人事', 'タスク・予実管理'),
+    ('mangatari-legal-hub',         '法', '人事', '法務・総務ハブ'),
+    ('zensha-shukai',               '集', '人事', '全社集会'),
 
     ('genko-size-checker',          '原', 'その他', '原稿サイズチェッカー'),
     ('gappon-checker',              '台', 'その他', '合本版 台割チェック'),
@@ -74,6 +76,9 @@ TOOLS = [
     ('manga-b2b-archive',           'B',  'その他', 'マンガ業界B2Bアーカイブ'),
     ('slack-stale-alert',           '放', 'その他', 'Slack放置検知'),
     ('mangatari-ci-monitor',        '監', 'その他', 'CI・監視（定期実行の見張り）'),
+    ('mtg-assistant',               '議', 'その他', 'MTGアシスタント（議事録）'),
+    ('mangatari-info-watch',        '情', 'その他', '情報ウォッチ'),
+    ('drive-owner-migration',       '移', 'その他', 'Drive オーナー付け替え'),
 ]
 
 # ファイル名に使えない・URLで困る文字を落とす（日本語キーは英字名に読み替える）
