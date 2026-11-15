@@ -2,7 +2,8 @@
 """ツールごとの favicon を作る（2026-10-14・前田さんの依頼「各ツールに favicon 対応」）。
 
   python3 tools/make-favicons.py            # favicon/ を作り直す
-  python3 tools/make-favicons.py --check    # 作り直さず、いまの PNG と同じになるかだけ見る（CI向け）
+  python3 tools/make-favicons.py --check    # 作り直さず、いまの PNG と絵（画素）が同じかだけ見る（CI向け）
+  ※ 絵が変わらないツールの PNG は書き直さない（バイト列だけの差分を出さない）
 
 **絵の正本はこのスクリプト。** PNG は生成物なので、直したいときは下の TOOLS を直して回す。
 手で画像を差し替えてもよいが、そのときはこのスクリプトを回さないこと（上書きされる）。
@@ -20,7 +21,7 @@ import io
 import os
 import sys
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageChops, ImageDraw, ImageFont
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT_DIR = os.path.join(os.path.dirname(HERE), 'favicon')
@@ -104,6 +105,14 @@ def render(glyph, category):
     return img
 
 
+def same_picture(path, img):
+    """いまの PNG が img と画素まで同じか（無ければ False）"""
+    if not os.path.exists(path):
+        return False
+    have = Image.open(path).convert('RGBA')
+    return have.size == img.size and ImageChops.difference(have, img).getbbox() is None
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--check', action='store_true', help='作り直さず、いまの PNG と同じかだけ見る')
@@ -122,10 +131,14 @@ def main():
         buf = io.BytesIO()
         img.save(buf, 'PNG')
         want = buf.getvalue()
+        # 比べるのは絵（画素）。PNG のバイト列は Pillow の版で変わるので、絵が同じなら書き直さない
+        # （2026-11-16 1ツール足すたびに他のツールの PNG まで差分に出ていた。bad3280 で手で戻していたのをやめる）
+        same = same_picture(path, img)
         if args.check:
-            have = open(path, 'rb').read() if os.path.exists(path) else b''
-            if have != want:
+            if not same:
                 drift.append(filename_for(key))
+            continue
+        if same:
             continue
         with open(path, 'wb') as f:
             f.write(want)
