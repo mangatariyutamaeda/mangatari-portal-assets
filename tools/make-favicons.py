@@ -59,6 +59,7 @@ TOOLS = [
     ('freee-tax-linker',            '証', '会計', 'freee 証憑未添付リスト'),
     ('sakibarai_gas',               '先', '会計', '先払い申請'),
     ('payment-checker',             '払', '会計', '支払いチェッカー'),
+    ('mangatari-keiri-rules',       '経', '会計', '経理ルール整備'),
 
     ('mangatari-access-hub',        '権', '人事', 'ツール権限管理'),
     ('mangatari-people-hub',        '社', '人事', '社員情報ハブ'),
