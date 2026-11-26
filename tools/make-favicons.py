@@ -83,6 +83,7 @@ TOOLS = [
     ('mtg-assistant',               '議', 'その他', 'MTGアシスタント（議事録）'),
     ('mangatari-info-watch',        '情', 'その他', '情報ウォッチ'),
     ('drive-owner-migration',       '移', 'その他', 'Drive オーナー付け替え'),
+    ('mangatari-site-kaizen',       '改', 'その他', 'サイト改善管理'),
 ]
 
 # ファイル名に使えない・URLで困る文字を落とす（日本語キーは英字名に読み替える）
