@@ -45,6 +45,7 @@ TOOLS = [
     ('manpro-kickoff',              '立', '制作', 'まんプロ プロジェクト立ち上げ'),
     ('manpro-matching',             'マ', '制作', 'まんプロ 空きポジションと作家のマッチング'),
     ('manpro-oubo',                 '応', '制作', 'まんプロ 作家応募管理'),
+    ('manpro-shashoku',             '写', '制作', 'まんプロ 写植管理'),
     ('delay-notifier',              '遅', '制作', 'まんプロ 遅延通知'),
     ('manga_copyright_tool',        '著', '制作', '著作権表記 焼き込み'),
     ('manga-koshi-anken',           '講', '制作', 'マンガ講師派遣 案件管理'),
